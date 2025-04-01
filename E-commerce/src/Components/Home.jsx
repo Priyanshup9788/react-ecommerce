@@ -65,8 +65,8 @@ const Home = () => {
                 <p>$29.99</p>
             </div>
             <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/Bonkerscorner_caped_crusader_stripped_t-shirt_15_640x_crop_center.jpg?v=1741170608" alt="Product 3" />
-                <h3>Oversized T-shirt</h3>
+                <img src="https://www.bonkerscorner.com/cdn/shop/files/Bonkerscorner_pale_bloom_set_7_640x_crop_center.jpg?v=1739787669" alt="Product 3" />
+                <h3>cord-set</h3>
                 <p>$59.99</p>
             </div>
         </div>
