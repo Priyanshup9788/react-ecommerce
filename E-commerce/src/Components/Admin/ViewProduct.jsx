@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AdminHeader from './AdminHeader'
+import { useSelector } from 'react-redux';
 
 const ViewProduct = () => {
+    let allProd = useSelector((state)=>state.product);
+    const [allProducts,setAllProducts] = useState(allProd.product);
+    console.log(allProducts)
+
     return (
         <>
         <AdminHeader/>
@@ -14,30 +19,26 @@ const ViewProduct = () => {
                         <th>Name</th>
                         <th>Category</th>
                         <th>Price</th>
-                        <th>Stock</th>
+                        <th>Image</th>
                         <th>Description</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Product 1</td>
-                        <td>Clothing</td>
-                        <td>$29.99</td>
-                        <td>In Stock</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos deleniti natus ea, voluptates nulla at consequuntur quia. Asperiores ipsum eaque, et amet qui iure. Repellendus mollitia fuga numquam odit dolorum.</td>
+                    {allProducts.map((prod,i)=>(
+                        <tr>
+                        <td>{prod.id}</td>
+                        <td>{prod.name}</td>
+                        <td>{prod.category}</td>
+                        <td>${prod.price}</td>
+                        <td><img src={prod.image} style={{objectFit:"cover"}} width="120px" height="120px"/></td>
+                        <td>{prod.description}</td>
                         <td><button>Edit</button> <button>Delete</button></td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Product 1</td>
-                        <td>Clothing</td>
-                        <td>$29.99</td>
-                        <td>In Stock</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos deleniti natus ea, voluptates nulla at consequuntur quia. Asperiores ipsum eaque, et amet qui iure. Repellendus mollitia fuga numquam odit dolorum.</td>
-                        <td><button>Edit</button> <button>Delete</button></td>
-                    </tr>
+                    ))
+                    
+                    }
+                
                 </tbody>
             </table>
         </div>

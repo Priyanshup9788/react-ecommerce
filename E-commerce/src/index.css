@@ -98,7 +98,7 @@ nav a {
 }
 
 .product-card img {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
   height: 75%;
   border-radius: 5px;
@@ -138,13 +138,13 @@ nav a {
   padding: 20px;
 }
 
-.product-grid {
+.shop-products .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-.product-card {
+.shop-products .product-card {
   background-color: white;
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -152,11 +152,14 @@ nav a {
   border-radius: 5px;
 }
 
-.product-card img {
+.shop-products .product-card img {
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 15rem;
   border-radius: 5px;
 }
+
+
 
 .btn {
   display: inline-block;

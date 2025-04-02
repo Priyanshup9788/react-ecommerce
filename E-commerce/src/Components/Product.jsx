@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 
 const Product = () => {
+    let allProd = useSelector((state) => state.product);
+    const [allProducts, setAllProducts] = useState(allProd.product);
+
   return (
     <>
 
@@ -32,78 +36,17 @@ const Product = () => {
     
     <section className="shop-products">
         <div className="product-grid">
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/dark-green-regular-fit-shirt-xs-bonkerscorner-store-33696818331748_640x_crop_center.jpg?v=1728982295" alt="Product 1"/>
-                <h3>Stylish Jacket</h3>
-                <p>$49.99</p>
+            {
+                allProducts.map((prod)=>(
+                    <div className="product-card">
+                <img src={prod.image} alt="Product 1"/>
+                <h3>{prod.name}t</h3>
+                <p>${prod.price}</p>
                 <a href="#" className="btn">Add to Cart</a>
             </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/Bonkerscorner_caped_crusader_stripped_t-shirt_15_640x_crop_center.jpg?v=1741170608" alt="Product 2"/>
-                <h3>Casual Shirt</h3>
-                <p>$29.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 3"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 4"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 4"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 4"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 4"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 3"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 4"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 4"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 4"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
-            <div className="product-card">
-                <img src="https://www.bonkerscorner.com/cdn/shop/files/BonkersCorner_patrick_cupcake_pink_hoodie_20_640x_crop_center.jpg?v=1738064674" alt="Product 4"/>
-                <h3>Trendy Sneakers</h3>
-                <p>$59.99</p>
-                <a href="#" className="btn">Add to Cart</a>
-            </div>
+                ))
+            }
+            
         </div>
     </section>
     </>

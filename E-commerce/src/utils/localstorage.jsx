@@ -17,7 +17,7 @@ export const loadState = ()=>{
 
 export const saveState=(state)=>{
     try{
-        localStorage.setItem("products",JSON.stringify(state.product));
+        localStorage.setItem("products",JSON.stringify(state));
     }catch(err){
         console.log(err);
         return undefined;
