@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
 import AdminHeader from './AdminHeader'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { deleteProduct } from '../../redux/actions';
 
 const ViewProduct = () => {
+    let dispatch = useDispatch();
     let allProd = useSelector((state)=>state.product);
     const [allProducts,setAllProducts] = useState(allProd.product);
     console.log(allProducts)
+
+    const onDeleteProd = (e,id)=>{
+        e.preventDefault();
+        console.log(id)
+        setAllProducts(allProducts.filter((prod)=>prod.id!=id))
+        dispatch(deleteProduct(id))
+    }
 
     return (
         <>
@@ -33,7 +43,7 @@ const ViewProduct = () => {
                         <td>${prod.price}</td>
                         <td><img src={prod.image} style={{objectFit:"cover"}} width="120px" height="120px"/></td>
                         <td>{prod.description}</td>
-                        <td><button>Edit</button> <button>Delete</button></td>
+                        <td><Link to={"/update/"+prod.id}><button>Edit</button></Link> <button onClick={(e)=>onDeleteProd(e,prod.id)}>Delete</button></td>
                     </tr>
                     ))
                     

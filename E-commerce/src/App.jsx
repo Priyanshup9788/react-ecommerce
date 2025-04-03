@@ -7,6 +7,7 @@ import SingleProduct from './Components/SingleProduct'
 import Cart from './Components/Cart'
 import AddProduct from './Components/Admin/AddProduct'
 import ViewProduct from './Components/Admin/ViewProduct'
+import UpdateProduct from './Components/Admin/UpdateProduct'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/single-product' element={<SingleProduct></SingleProduct>}/>
         <Route path="/add" element={<AddProduct></AddProduct>}/>
         <Route path='/view' element={<ViewProduct/>}/>
+        <Route path='/update/:prodid' element={<UpdateProduct/>}/>
       </Routes>
     </BrowserRouter>
   )

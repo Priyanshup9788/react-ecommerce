@@ -1,4 +1,4 @@
-import { ADDPRODUCT, VIEWPRODUCT } from "./actions"
+import { ADDPRODUCT, DELETEPRODUCT, UPDATEPRODUCT, VIEWPRODUCT } from "./actions"
 
 const initialState = {
     product: [{
@@ -61,6 +61,22 @@ const ProductReducer = (state = initialState, action) => {
         case ADDPRODUCT:
             {
                 return { ...state, product: [...state.product, action.payload] };
+            }
+        case UPDATEPRODUCT:
+            {
+                state.product=state.product.map((prod) => {
+                    if (prod.id == action.payload.id) {
+                        prod = {...action.payload}
+                    }
+                    return prod
+                });
+                return state;
+            }
+        case DELETEPRODUCT:
+            {
+                state.product = state.product.filter((prod)=> prod.id!=action.payload);
+                console.log(state.product)
+                return state;
             }
         default:
             {
