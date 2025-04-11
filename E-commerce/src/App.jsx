@@ -8,9 +8,14 @@ import Cart from './Components/Cart'
 import AddProduct from './Components/Admin/AddProduct'
 import ViewProduct from './Components/Admin/ViewProduct'
 import UpdateProduct from './Components/Admin/UpdateProduct'
+import Login from './Auth/Login'
+import Signup from './Auth/Signup'
+import { useState } from 'react'
+import ForgotPassword from './Auth/ForgotPassword'
 
 function App() {
 
+  const [id,setId]=useState(-1)
   return (
     <BrowserRouter>
     <Header></Header>
@@ -22,6 +27,9 @@ function App() {
         <Route path="/add" element={<AddProduct></AddProduct>}/>
         <Route path='/view' element={<ViewProduct/>}/>
         <Route path='/update/:prodid' element={<UpdateProduct/>}/>
+        <Route path='/login' element={<Login/>} />
+        <Route path='/signup' element={<Signup/>} />
+        <Route path='/forgotpass' element={<ForgotPassword/>}/>
       </Routes>
     </BrowserRouter>
   )

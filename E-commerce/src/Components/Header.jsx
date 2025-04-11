@@ -11,6 +11,7 @@ const Header = () => {
                     <li><Link to="/product" ><a href="">Shop</a></Link></li>
                     <li><Link to="/cart"><a href="">Cart</a></Link></li>
                     <li><Link to="/add"><a href="">Admin</a></Link></li>
+                    <li><Link to="/login"><a href="">Login</a></Link></li>
                 </ul>
             </nav>
         </header>

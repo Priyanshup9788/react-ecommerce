@@ -1,6 +1,6 @@
 export const loadState = ()=>{
     try{
-        let allData = localStorage.getItem("products");
+        let allData = localStorage.getItem("fashionStore");
         if(allData == null)
         {
             return undefined;
@@ -17,7 +17,7 @@ export const loadState = ()=>{
 
 export const saveState=(state)=>{
     try{
-        localStorage.setItem("products",JSON.stringify(state));
+        localStorage.setItem("fashionStore",JSON.stringify(state));
     }catch(err){
         console.log(err);
         return undefined;
